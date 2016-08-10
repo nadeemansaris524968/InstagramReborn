@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="15t-Zr-O76">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -29,12 +29,65 @@
                             <outlet property="delegate" destination="35L-g8-98T" id="wIe-sA-qsG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="User List" id="V9R-Tp-SzC"/>
+                    <navigationItem key="navigationItem" title="User List" id="V9R-Tp-SzC">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="6Ui-7R-QHI">
+                            <connections>
+                                <segue destination="15t-Zr-O76" kind="show" id="tA8-N9-C6U"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gF6-TK-fBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="190.5" y="809.5"/>
+        </scene>
+        <!--Post Image-->
+        <scene sceneID="YvR-6p-CIi">
+            <objects>
+                <viewController title="Post Image" id="15t-Zr-O76" customClass="PostImageViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Or4-j5-KUF"/>
+                        <viewControllerLayoutGuide type="bottom" id="hMX-EI-AVw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Ln-K9-g4B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5T1-LP-GX2">
+                                <rect key="frame" x="129" y="374" width="119" height="30"/>
+                                <state key="normal" title="Choose an image"/>
+                                <connections>
+                                    <action selector="chooseImage:" destination="15t-Zr-O76" eventType="touchUpInside" id="9Z1-mX-26M"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bUm-Rt-AYw">
+                                <rect key="frame" x="83" y="412" width="208" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cw8-OC-2R7">
+                                <rect key="frame" x="149" y="455" width="77" height="30"/>
+                                <state key="normal" title="Post image"/>
+                                <connections>
+                                    <action selector="postImage:" destination="15t-Zr-O76" eventType="touchUpInside" id="OZg-KI-MIz"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image-placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="b6V-S3-FhI">
+                                <rect key="frame" x="63" y="87" width="249" height="274"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageToPost" destination="b6V-S3-FhI" id="h3c-3S-jnn"/>
+                        <outlet property="message" destination="bUm-Rt-AYw" id="95v-2f-iuJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jrM-8X-hiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="663.5" y="809.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="L0r-Ii-4G1">
@@ -163,4 +216,7 @@
             <point key="canvasLocation" x="-776.5" y="809.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="image-placeholder.png" width="1140" height="760"/>
+    </resources>
 </document>
