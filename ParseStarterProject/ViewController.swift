@@ -11,6 +11,7 @@ import UIKit
 import Parse
 
 class ViewController: UIViewController {
+
     
     @IBOutlet weak var username: UITextField!
     
@@ -65,7 +66,9 @@ class ViewController: UIViewController {
                         }
                     }
                     else {
-                        print("Signed up")
+                    
+                        self.performSegueWithIdentifier("login", sender: self)
+                    
                     }
                 
                 })
@@ -78,7 +81,8 @@ class ViewController: UIViewController {
                     UIApplication.sharedApplication().endIgnoringInteractionEvents()
                     
                     if user != nil {
-                        print("Logged in")
+                        
+                        self.performSegueWithIdentifier("login", sender: self)
                         
                     }
                     else {
@@ -126,6 +130,15 @@ class ViewController: UIViewController {
 
     }
 
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        if PFUser.currentUser() != nil {
+            self.performSegueWithIdentifier("login", sender: self)
+        }
+        
+    }
     
     func displayAlert(title: String, message: String) {
         
