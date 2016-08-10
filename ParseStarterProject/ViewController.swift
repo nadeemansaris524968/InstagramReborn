@@ -116,6 +116,7 @@ class ViewController: UIViewController {
             resgiteredText.text = "Already registered?"
             loginBTNOTLT.setTitle("Log In", forState: UIControlState.Normal)
             
+            
         }
         
     }
